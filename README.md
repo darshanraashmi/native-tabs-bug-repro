@@ -6,7 +6,10 @@ This repository provides a minimal reproducible example for a bug where `unstabl
 
 In our production app, we route based on the OS:
 - **iOS 18:** Uses a custom Javascript fallback (`app-navigator.tsx`).
-- **iOS 26 & 27:** Uses `expo-router/unstable-native-tabs`.
+- **iOS 26:** Successfully uses `expo-router/unstable-native-tabs`.
+- **iOS 27:** Because `unstable-native-tabs` breaks the division on iOS 27, we are forced to conditionally bypass NativeTabs and fall back to our custom `app-navigator.tsx` to preserve the UI design.
+
+We have included a mock `app/app-navigator.tsx` in this repository to visually demonstrate the separated "divided" layout that we are trying to achieve UI parity with.
 
 ## Steps to Reproduce
 
